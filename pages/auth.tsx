@@ -78,7 +78,7 @@ const Auth = () => {
 
               <Input
                 label="Password"
-                onChange={(ev) => setPassword(ev.target.value)}
+                onChange={(ev: any) => setPassword(ev.target.value)}
                 id="password"
                 type="password"
                 value={password}
