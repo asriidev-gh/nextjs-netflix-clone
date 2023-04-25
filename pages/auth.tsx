@@ -62,7 +62,7 @@ const Auth = () => {
               {variant === "register" && (
                 <Input
                   label="Username"
-                  onChange={(ev) => setName(ev.target.value)}
+                  onChange={(ev: any) => setName(ev.target.value)}
                   id="name"
                   value={name}
                 />
@@ -70,7 +70,7 @@ const Auth = () => {
 
               <Input
                 label="Email"
-                onChange={(ev) => setEmail(ev.target.value)}
+                onChange={(ev: any) => setEmail(ev.target.value)}
                 id="email"
                 type="email"
                 value={email}
