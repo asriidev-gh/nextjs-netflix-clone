@@ -5,6 +5,8 @@ import { signIn } from "next-auth/react";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+
 import { useRouter } from 'next/router';
 
 const Auth = () => {
@@ -104,6 +106,12 @@ const Auth = () => {
                   className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
                 >
                   <FaGithub size={30} />
+                </div>
+                <div
+                  onClick={() => signIn("facebook", { callbackUrl: "/profiles" })}
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
+                >
+                  <FaFacebook size={30} />
                 </div>
               </div>
 
