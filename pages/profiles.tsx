@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
-  const { data: otherSession } = useSession();
+  
   console.log('session: ', session);
-  console.log('otherSession: ', otherSession);
+  
 
   if (!session) {
     return {
@@ -26,6 +26,8 @@ export async function getServerSideProps(context: NextPageContext) {
 const Profiles = () => {
   const router = useRouter();
   const { data: user } = useCurrentUser();
+  const { data: otherSession } = useSession();
+  console.log('otherSession: ', otherSession);
   return (
     <div className="flex items-center h-full justify-center">
       <div className="flex flex-col">
