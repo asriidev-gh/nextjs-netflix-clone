@@ -26,8 +26,8 @@ export async function getServerSideProps(context: NextPageContext) {
 const Profiles = () => {
   const router = useRouter();
   const { data: user } = useCurrentUser();
-  const { data: otherSession } = useSession();
-  console.log('otherSession: ', otherSession);
+  const { data: userSession } = useSession();
+
   return (
     <div className="flex items-center h-full justify-center">
       <div className="flex flex-col">
@@ -38,11 +38,11 @@ const Profiles = () => {
           <div onClick={() => router.push("/")}>
             <div className="group flex-row w-44 mx-auto">
               <div className="w-44 h-44 rounded-md flex items-center border-2 border-transparent group-hover: cursor-pointer group-hover: border-white overflow-hidden">
-                <img src="/images/default-blue.png" alt="Profile" />
+                <img src={userSession?.user?.image ? userSession?.user?.image : "/images/default-blue.png"} alt="Profile" referrerPolicy="no-referrer" width="100%" height="100%" />
               </div>
 
               <div className="mt-4 text-gray-400 text-2xl text-center group-hover: text-white">
-                {user?.name}
+                {user?.name ? user?.name : userSession?.user?.name}
               </div>
             </div>
           </div>
